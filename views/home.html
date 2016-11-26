@@ -1,0 +1,17 @@
+<div class="col-md-8 col-md-offset-2">
+	<h1>{{ title }}</h1>
+
+ 	<h4>Static arrays</h4>
+  <pre>Model: {{selected | json}}</pre>
+  <input type="text" ng-model="selected" uib-typeahead="cuisine for cuisine in cuisines | filter:$viewValue | limitTo:8" class="form-control">
+
+  <h4>Asynchronous results</h4>
+  <pre>Model: {{asyncSelected | json}}</pre>
+
+  <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" uib-typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+  <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+  <div ng-show="noResults">
+    <i class="glyphicon glyphicon-remove"></i> No Results Found
+  </div>
+
+</div>
